@@ -1,0 +1,22 @@
+{
+  "name": "ocr-pro-docs",
+  "version": "1.0.0",
+  "description": "OCR Pro 文档网站",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vitepress dev",
+    "build": "npx vitepress build",
+    "preview": "npx vitepress preview"
+  },
+  "keywords": [
+    "ocr",
+    "utools",
+    "plugin",
+    "documentation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
