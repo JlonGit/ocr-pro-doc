@@ -4,9 +4,9 @@
   "description": "OCR Pro 文档网站",
   "type": "module",
   "scripts": {
-    "dev": "npx vitepress dev",
-    "build": "npx vitepress build",
-    "preview": "npx vitepress preview"
+    "dev": "vitepress dev",
+    "build": "node node_modules/vitepress/bin/vitepress.js build",
+    "preview": "vitepress preview"
   },
   "keywords": [
     "ocr",
