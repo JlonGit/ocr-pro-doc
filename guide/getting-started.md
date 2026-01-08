@@ -12,7 +12,7 @@
 2. 搜索 `OCR Pro`
 3. 点击获取
 
-<img src="../image/OCR Pro.png" alt="OCR Pro" style="zoom:80%;" />
+<img src="../image/OCR%20Pro.png" alt="OCR Pro" style="zoom:80%;" />
 
 ## 基本使用
 
@@ -26,7 +26,7 @@
 3. 框选需要识别的区域
 4. 查看识别结果
 
-<img src="../image/ocr.png" alt="OCR" style="zoom:40%;" />
+<img src="../image/OCR.png" alt="OCR" style="zoom:40%;" />
 
 ::: tip 快捷操作
 可以为该 `功能指令` 设置全局快捷键，实现一键截图识别。
