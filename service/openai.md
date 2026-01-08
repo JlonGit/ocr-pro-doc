@@ -42,4 +42,4 @@ OpenAI 需要绑定付款方式才能使用 API。可考虑使用第三方中转
 
 ## 下一步
 
-配置完成后，返回插件进行 [OCR 服务配置](/config/ocr-services) 或 [翻译服务配置](/config/translate-services)。
+配置完成后，返回插件进行 [大模型服务配置](/config/llm-models)。

@@ -54,4 +54,4 @@ DeepLX 是一个开源项目，可以免费使用 DeepL 翻译功能。
 
 ## 下一步
 
-配置完成后，返回插件进行 [翻译服务配置](/config/translate-services)。
+配置完成后，返回插件进行 [传统模型服务配置](/config/traditional-models)。
