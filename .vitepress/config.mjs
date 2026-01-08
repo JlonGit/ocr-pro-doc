@@ -17,72 +17,89 @@ export default defineConfig({
         nav: [
             { text: '首页', link: '/' },
             { text: '指南', link: '/guide/getting-started' },
-            { text: '配置', link: '/config/ocr-services' },
-            { text: '服务申请', link: '/service/apply' }
+            { text: '配置', link: '/config/profile' },
+            { text: '服务申请', link: '/service/overview' }
         ],
 
         sidebar: {
             '/guide/': [
+                { text: '快速开始', link: '/guide/getting-started' },
                 {
-                    text: '入门指南',
+                    text: 'OCR',
                     items: [
-                        { text: '快速开始', link: '/guide/getting-started' },
-                        { text: '安装说明', link: '/guide/installation' }
-                    ]
-                },
-                {
-                    text: '核心功能',
-                    items: [
-                        { text: 'OCR 文字识别', link: '/guide/ocr' },
-                        { text: '翻译功能', link: '/guide/translate' },
-                        { text: '小窗翻译', link: '/guide/mini-translate' },
+                        { text: '文字识别', link: '/guide/ocr' },
                         { text: '表格识别', link: '/guide/table-ocr' },
                         { text: '公式识别', link: '/guide/formula-ocr' },
                         { text: 'Markdown 识别', link: '/guide/markdown-ocr' },
-                        { text: '图片翻译', link: '/guide/image-translate' }
+                        { text: '二维码识别', link: '/guide/qrcode-ocr' }
                     ]
                 },
                 {
-                    text: '高级功能',
+                    text: '翻译',
                     items: [
-                        { text: '历史记录', link: '/guide/history' },
-                        { text: '快捷命令', link: '/guide/commands' }
+                        { text: '文字翻译', link: '/guide/translate' },
+                        { text: '图片翻译', link: '/guide/image-translate' },
+                        { text: '小窗翻译', link: '/guide/mini-translate' }
+                    ]
+                },
+                {
+                    text: '指令',
+                    items: [
+                        { text: '功能指令', link: '/guide/commands' },
+                        { text: '匹配指令', link: '/guide/match-commands' }
                     ]
                 }
             ],
             '/config/': [
                 {
-                    text: '配置教程',
+                    text: '基础配置',
                     items: [
-                        { text: 'OCR 服务配置', link: '/config/ocr-services' },
-                        { text: '翻译服务配置', link: '/config/translate-services' },
-                        { text: '其他配置', link: '/config/other-settings' }
+                        { text: '个人中心', link: '/config/profile' },
+                        { text: 'OCR默认模型', link: '/config/ocr-default' },
+                        { text: '翻译默认模型', link: '/config/translate-default' },
+                        { text: '可选配置', link: '/config/optional' },
+                        { text: '快捷键配置', link: '/config/shortcuts' },
+                        { text: '数据备份与恢复', link: '/config/backup' }
                     ]
-                }
+                },
+                {
+                    text: '模型服务',
+                    items: [
+                        { text: '传统模型', link: '/config/traditional-models' },
+                        { text: 'LLM模型', link: '/config/llm-models' }
+                    ]
+                },
+                { text: '历史记录', link: '/config/history' }
             ],
             '/service/': [
                 {
-                    text: '服务申请指南',
+                    text: '服务申请',
                     items: [
-                        { text: '服务申请首页', link: '/service/apply' }
+                        { text: '概览', link: '/service/overview' }
                     ]
                 },
                 {
-                    text: 'AI 大模型服务',
+                    text: '传统模型',
+                    collapsed: false,
                     items: [
-                        { text: 'AI 模型 API 申请', link: '/service/ai-models' }
+                        { text: '百度智能云', link: '/service/baidu' },
+                        { text: '腾讯云', link: '/service/tencent' },
+                        { text: '阿里云', link: '/service/aliyun' },
+                        { text: '火山引擎', link: '/service/volcengine' },
+                        { text: 'DeepLX', link: '/service/deeplx' },
+                        { text: '有道翻译', link: '/service/youdao' }
                     ]
                 },
                 {
-                    text: '传统 OCR 服务',
+                    text: 'LLM 模型',
+                    collapsed: false,
                     items: [
-                        { text: '传统 OCR API 申请', link: '/service/traditional-ocr' }
-                    ]
-                },
-                {
-                    text: '翻译服务',
-                    items: [
-                        { text: '翻译 API 申请', link: '/service/translate-services' }
+                        { text: 'OpenAI', link: '/service/openai' },
+                        { text: 'Anthropic', link: '/service/anthropic' },
+                        { text: 'Gemini', link: '/service/gemini' },
+                        { text: '阿里云百炼', link: '/service/aliyun-bailian' },
+                        { text: '火山引擎', link: '/service/volcengine-llm' },
+                        { text: '智谱AI', link: '/service/zhipu' }
                     ]
                 }
             ]

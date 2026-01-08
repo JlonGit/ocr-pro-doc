@@ -1,0 +1,25 @@
+/* 服务概览页面自定义样式 */
+
+/* 分类标题样式 */
+.service-category-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin: 32px 0 8px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--vp-c-divider);
+}
+
+.service-category-title .icon {
+  font-size: 24px;
+}
+
+/* 分类描述 */
+.service-category-desc {
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
