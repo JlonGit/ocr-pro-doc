@@ -12,7 +12,7 @@
 2. 搜索 `OCR Pro`
 3. 点击获取
 
-<img src="../image/PixPin_2026-01-05_14-00-33.png" alt="PixPin_2026-01-05_14-00-33" style="zoom:80%;" />
+<img src="../image/OCR Pro.png" alt="OCR Pro" style="zoom:80%;" />
 
 ## 基本使用
 
