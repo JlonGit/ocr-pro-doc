@@ -24,6 +24,7 @@ export default defineConfig({
         sidebar: {
             '/guide/': [
                 { text: '快速开始', link: '/guide/getting-started' },
+                { text: '账号配置', link: '/guide/user-config' },
                 {
                     text: 'OCR',
                     items: [

@@ -6,98 +6,34 @@
 官方文档：https://docs.anthropic.com/en/docs/quickstart
 :::
 
-## API 申请
+## 0. 收费模式
 
-### 免费额度
+| Model             | input tokens | output tokens |
+| :---------------- | :----------- | :------------ |
+| Claude 3.5 Sonnet | $3.00 / 1M   | $15.00 / 1M   |
+| Claude 3.5 Haiku  | $1.00 / 1M   | $5.00 / 1M    |
 
-Anthropic 不提供免费额度，需要绑定支付方式才能使用 API。
+仅列出部分模型，详情参考 [这篇文档](https://docs.anthropic.com/en/docs/about-claude/models)。
 
-| 模型 | 价格 |
-|------|------|
-| claude-3-haiku | 输入 $0.80/百万 tokens，输出 $4/百万 tokens |
-| claude-3-5-sonnet | 输入 $3/百万 tokens，输出 $15/百万 tokens |
-| claude-3-opus | 输入 $15/百万 tokens，输出 $75/百万 tokens |
+## 1. 申请条件
 
-## 1. 注册登录
+申请 Claude 需要以下条件
 
-[点击此处跳转网页](https://console.anthropic.com/)
+- 访问国际互联网的能力（在 Claude 官方不允许的国家或地区使用可能会导致封号）
+- 国外信用卡
 
-点击「Sign up」注册账号，使用邮箱注册或通过 Google 账号登录
+## 2. 注册登录
 
-## 2. 绑定支付方式
+前往 [Anthropic Console](https://console.anthropic.com/dashboard) 注册登录。
 
-::: warning 重要
-Anthropic API 需要绑定有效的支付方式才能使用
-:::
+## 3. 获取秘钥
 
-登录后进入 [「Billing」](https://console.anthropic.com/settings/billing/overview)
+警告
 
-点击「Add payment method」
+请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
 
-选择支付方式（信用卡、借记卡等）
+前往 [「API Key」](https://console.anthropic.com/settings/keys) 页面获取秘钥。
 
-填写卡片信息并完成验证
+## 4. 填写秘钥
 
-## 3. 创建 API Key
-
-进入 [「API Keys」](https://console.anthropic.com/settings/keys)
-
-点击「Create Key」
-
-输入密钥名称（可选）
-
-复制生成的 API Key 并妥善保管
-
-::: warning 警告
-**API Key 只会显示一次，请立即复制并保存到安全的地方，泄露可能会给你带来损失！**
-:::
-
-## 4. 查看使用情况
-
-进入 [「Usage」](https://console.anthropic.com/settings/usage)
-
-可以查看当前的使用情况和成本
-
-## 5. 填写 API Key
-
-在 OCR 应用的 模型服务 > 大模型 中，选中「Anthropic」，然后将刚才获取到的 API Key 填写到对应位置即可。
-
----
-
-## 模型选择
-
-| 模型 | 特点 | 推荐场景 |
-|------|------|---------|
-| claude-3-5-sonnet-20241022 | 综合能力强，性价比高 | 通用任务、OCR 识别 |
-| claude-3-opus-20250219 | 最强模型，复杂任务首选 | 复杂推理、长文本分析 |
-| claude-3-haiku-20250307 | 轻量版本，速度快 | 简单任务、高频调用 |
-
-## 常见问题
-
-### 1. 无法访问 Anthropic 网站
-
-Anthropic 在某些地区可能无法直接访问，可以：
-- 使用 VPN 或代理服务
-- 使用第三方中转 API 服务
-
-### 2. 支付方式被拒绝
-
-- 确保信用卡支持国际交易
-- 尝试使用其他支付方式
-- 联系银行确认是否被限制
-
-### 3. API 调用失败
-
-- 检查 API Key 是否正确
-- 确认账户有足够的余额或额度
-- 检查请求格式是否正确
-
-### 4. 如何选择模型
-
-- 复杂任务：使用 `claude-3-opus`
-- 通用任务：使用 `claude-3-5-sonnet`
-- 简单任务：使用 `claude-3-haiku`
-
-## 下一步
-
-配置完成后，返回插件进行 [大模型服务配置](/config/llm-models)。
+在 OCR Pro 的 模型服务 > 大模型 中，选中「Anthropic」，然后将刚才获取到的秘钥填写到对应位置即可。

@@ -1,149 +1,228 @@
 # 火山引擎
 
 ::: warning 注意
+
 本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
 
 官方文档：https://www.volcengine.com/docs/4640/130872
+
 :::
 
-## OCR 服务
+# OCR
 
-火山引擎 OCR 服务技术领先，支持多种识别场景。
+注意
 
-### 免费额度
+本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
 
-新用户可获得一定的免费试用额度，具体以官网为准。
+官方文档：https://www.volcengine.com/docs/6790/116978
+
+## 0. 收费模式
+
+[查看详情](https://www.volcengine.com/docs/6790/116979)
+
+| 服务                       | 免费额度                         | 超出免费额度 | 并发请求数 |
+| :------------------------- | :------------------------------- | :----------- | :--------- |
+| 多语种 OCR（免费试用状态） | 共计 5000 次（每个账号赠送一次） | -            | 1次/秒     |
+| 多语种 OCR（正式调用状态） | 无                               | 0.015元/次   | 10次/秒    |
 
 ## 1. 注册登录
 
 [点击此处跳转网页](https://www.volcengine.com/)
 
-注册火山引擎账号并登录（如需实名认证，按提示完成即可）
+提示：火山引擎是字节跳动旗下的云服务平台，可以用抖音扫码注册登录
+
+![volcengine_login](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_login.jpg)
 
 ## 2. 实名认证
 
-进入 [「账户中心」](https://console.volcengine.com/user/account)
+注意
 
-点击「实名认证」
+火山引擎的服务使用之前需要认证，普通用户申请「个人认证」即可，如果已经认证，请直接跳过此步骤
 
-选择「个人」或「企业」认证
+进入[「账号管理-实名认证」](https://console.volcengine.com/user/authentication)页面，点击「开始个人认证」
 
-按照提示完成身份验证
+![volcengine_auth_1](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_1.jpg)
 
-::: tip 提示
-实名认证是使用付费服务的前提条件
-:::
+有多种认证方式，可自行选择。我这里选的扫脸认证，然后点击「下一步」
 
-## 3. 开通 OCR 服务
+![volcengine_auth_2](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_2.jpg)
 
-进入 [「火山引擎控制台」](https://console.volcengine.com/)
+输入个人信息，然后点击「提交认证」
 
-在左侧菜单找到「视觉智能」→「OCR 文字识别」
+![volcengine_auth_3](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_3.jpg)
 
-点击「立即开通」按钮
+手机打开抖音，扫描下方二维码
 
-## 4. 获取访问密钥
+![volcengine_auth_4](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_4.jpg)
 
-::: warning 警告
-**请妥善保管自己的密钥，密钥泄露可能会给你带来损失！**
-:::
+如下所示，即为认证成功
 
-进入 [「访问密钥」](https://console.volcengine.com/iam/keymanage/)
+![volcengine_auth_5](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_5.jpg)
 
-点击「创建新的访问密钥」
+## 3. 开通文字识别
 
-系统会生成：
-- **Access Key ID**：访问密钥 ID
-- **Secret Access Key**：秘密访问密钥
+进入 [「视觉智能控制台」](https://console.volcengine.com/ai/overview) 页面
 
-::: warning 重要
-秘密访问密钥只会显示一次，请立即复制并妥善保管
-:::
+选中「业务总览」，点击「创建应用」
 
-## 5. 填写密钥
+![create_cv_app_1](https://cdn.ripperhe.com/oss/master/2022/1101/create_cv_app_1.jpg)
 
-在 OCR 应用的 模型服务 > 传统模型 中，选中「火山引擎」，然后将刚才获取到的密钥填写到对应位置即可。
+输入应用名称、应用描述，接入能力把「通用文字识别」和「多语种OCR」都选上，然后点击「创建应用」，页面提示成功即为创建成功
 
----
+![create_cv_app_2](https://cdn.ripperhe.com/oss/master/2022/1101/create_cv_app_2.jpg)
 
-## 翻译服务
+## 4. 获取秘钥
 
-火山引擎机器翻译，基于字节跳动强大的翻译技术。
+警告
 
-### 免费额度
+**前面的步骤，只要没明确说可以跳过，那就是不能跳过的，不然获取到秘钥也用不了！**
 
-新用户可获得一定的免费试用额度。
+此外，请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
+
+为了安全，先创建一个子用户，然后给该用户开通「视觉智能全读写策略」的权限，最后生成一个秘钥即可。
+
+提示
+
+如果你之前开通过火山的其他服务，已经生成了一个子用户，建议你直接跳到后面开通权限的那个步骤，把「视觉智能全读写策略」的权限加上，复用之前那个子用户就行。
+
+进入 [「秘钥管理-身份管理-用户」](https://console.volcengine.com/iam/identitymanage/user)，点击「新建用户」
+
+![volcengine_translate_secret_1](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_1.jpg)
+
+用户名输入「OCR_Pro」，点击「下一步」
+
+![volcengine_translate_secret_2](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_2.jpg)
+
+点击「提交」
+
+![volcengine_translate_secret_3](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_3.jpg)
+
+点击「管理」
+
+![volcengine_translate_secret_4](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_4.jpg)
+
+选中「权限」那一栏，点击「添加权限」，搜索框输入「CVFullAccess」，勾选上列表中的「CVFullAccess」，点击右下角「确定」
+
+![volcengine_cv_secret](https://cdn.ripperhe.com/oss/master/2023/0310/volcengine_cv_secret.jpg)
+
+选中「秘钥」那一栏，点击「新建秘钥」
+
+![volcengine_translate_secret_6](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_6.jpg)
+
+如下所示即为新建秘钥成功，可以直接点击「查看秘钥详情」查看秘钥，也可以点空白处关闭这个弹窗
+
+![volcengine_translate_secret_7](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_7.jpg)
+
+弹窗关闭后，可在下图位置查看秘钥
+
+![volcengine_translate_secret_8](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_8.jpg)
+
+## 5. 填写秘钥
+
+在 OCR Pro 的 模型服务 > 传统模型 中，选中「火山引擎」，然后将刚才获取到的秘钥填写到对应位置即可。
+
+# 翻译服务
+
+## 0. 收费模式
+
+[查看详情](https://www.volcengine.com/docs/4640/68515)
+
+| 服务     | 免费额度        | 超出免费额度   | 并发请求数 |
+| :------- | :-------------- | :------------- | :--------- |
+| 文本翻译 | 每月200万字符 👍 | 49元/100万字符 | 10次/秒    |
 
 ## 1. 注册登录
 
 [点击此处跳转网页](https://www.volcengine.com/)
 
-注册火山引擎账号并登录
+提示：火山引擎是字节跳动旗下的云服务平台，可以用抖音扫码注册登录
 
-## 2. 开通翻译服务
+![volcengine_login](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_login.jpg)
 
-进入 [「火山引擎控制台」](https://console.volcengine.com/)
+## 2. 实名认证
 
-在左侧菜单找到「AI 平台」→「机器翻译」
+注意
 
-点击「立即开通」按钮
+火山翻译使用之前需要认证，普通用户申请「个人认证」即可，如果已经认证，请直接跳过此步骤
 
-## 3. 获取访问密钥
+进入[「账号管理-实名认证」](https://console.volcengine.com/user/authentication)页面，点击「开始个人认证」
 
-使用之前获取的 **Access Key ID** 和 **Secret Access Key**
+![volcengine_auth_1](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_1.jpg)
 
-如果还未获取，请参考 OCR 服务部分的「获取访问密钥」步骤
+有多种认证方式，可自行选择。我这里选的扫脸认证，然后点击「下一步」
 
-## 4. 填写密钥
+![volcengine_auth_2](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_2.jpg)
 
-在 OCR 应用的 模型服务 > 传统模型 中，选中「火山引擎」，然后将刚才获取到的密钥填写到对应位置即可。
+输入个人信息，然后点击「提交认证」
 
-## 常见问题
+![volcengine_auth_3](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_3.jpg)
 
-### OCR 服务
+手机打开抖音，扫描下方二维码
 
-#### 1. 开通后无法立即使用
+![volcengine_auth_4](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_4.jpg)
 
-- 开通后需要等待 5-10 分钟才能生效
-- 刷新页面或重新登录
-- 检查是否已完成实名认证
+如下所示，即为认证成功
 
-#### 2. 免费额度用完了
+![volcengine_auth_5](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_auth_5.jpg)
 
-- 可以升级到付费版本
-- 查看 [火山引擎定价页面](https://www.volcengine.com/pricing) 了解价格
-- 联系客服申请更多免费额度
+## 3. 开通机器翻译
 
-#### 3. API 调用失败
+提示
 
-- 检查 Access Key ID 和 Secret Access Key 是否正确
-- 确认请求格式是否正确
-- 检查图片大小是否超过限制
+如果进入机器翻译页面能直接看到用量数据，证明已开通，请直接跳过此步骤
 
-#### 4. 识别精度不高
+进入 [「机器翻译」](https://console.volcengine.com/translate) 页面
 
-- 确保图片清晰度足够
-- 调整图片角度和光线
-- 尝试不同的识别模型
+勾选上「我已阅读并同意服务条款」，点击「立即开通」
 
-### 翻译服务
+![volcengine_translate_open_1](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_open_1.jpg)
 
-#### 1. 翻译结果不准确
+看到如下页面即为开通成功
 
-- 检查源文本是否清晰
-- 对于专业术语，可能需要手动调整
-- 尝试使用不同的翻译模型
+![volcengine_translate_open_2](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_open_2.jpg)
 
-#### 2. 免费额度用完了
+## 4. 获取秘钥
 
-- 可以升级到付费版本
-- 查看 [火山引擎定价页面](https://www.volcengine.com/pricing) 了解价格
+警告
 
-#### 3. 支持的语言
+**前面的步骤，只要没明确说可以跳过，那就是不能跳过的，不然获取到秘钥也用不了！**
 
-- 火山引擎翻译支持多种语言对
-- 查看官方文档了解完整的语言列表
+此外，请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
 
-## 下一步
+为了安全，先创建一个子用户，然后给该用户开通机器翻译的权限，最后生成一个秘钥即可。
 
-配置完成后，返回插件进行 [传统模型服务配置](/config/traditional-models)。
+进入 [「秘钥管理-身份管理-用户」](https://console.volcengine.com/iam/identitymanage/user)，点击「新建用户」
+
+![volcengine_translate_secret_1](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_1.jpg)
+
+用户名输入「OCR_Pro」，点击「下一步」
+
+![volcengine_translate_secret_2](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_2.jpg)
+
+点击「提交」
+
+![volcengine_translate_secret_3](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_3.jpg)
+
+点击「管理」
+
+![volcengine_translate_secret_4](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_4.jpg)
+
+选中「权限」那一栏，点击「添加权限」，搜索框输入「TranslateFullAccess」，勾选上列表中的「TranslateFullAccess」，点击右下角「确定」
+
+![volcengine_translate_secret_5](https://cdn.ripperhe.com/oss/master/2023/0310/volcengine_translate_secret_5.jpg)
+
+选中「秘钥」那一栏，点击「新建秘钥」
+
+![volcengine_translate_secret_6](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_6.jpg)
+
+如下所示即为新建秘钥成功，可以直接点击「查看秘钥详情」查看秘钥，也可以点空白处关闭这个弹窗
+
+![volcengine_translate_secret_7](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_7.jpg)
+
+弹窗关闭后，可在下图位置查看秘钥
+
+![volcengine_translate_secret_8](https://cdn.ripperhe.com/oss/master/2022/0828/volcengine_translate_secret_8.jpg)
+
+## 5. 填写秘钥
+
+在 OCR Pro 的 模型服务 > 传统模型 中，选中「火山引擎」，然后将刚才获取到的秘钥填写到对应位置即可。

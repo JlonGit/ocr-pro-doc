@@ -1,178 +1,62 @@
-# DeepLX
+# DeepL 翻译
 
 ::: warning 注意
+
 本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
 
-官方文档：https://www.deepl.com/docs-api
+官方文档：https://www.deepl.com/zh/pro#developer
+
 :::
 
-## 翻译服务 <Badge type="tip" text="高质量" />
+## 0. 收费模式
 
-DeepLX 是基于 DeepL 的翻译服务，提供高质量的翻译能力，尤其擅长欧洲语言。
+[查看详情](https://www.deepl.com/zh/pro#developer)
 
-### 免费额度
+| 服务           | 免费额度       | 超出免费额度                            | 并发请求数 |
+| :------------- | :------------- | :-------------------------------------- | :--------- |
+| DEEPL API FREE | 每月50万字符 👍 | 禁止使用                                | -          |
+| DEEPL API Pro  | 无免费额度     | 每月4.99欧元基础费用 + 20欧元/100万字符 | -          |
 
-| 版本 | 额度 | 说明 |
-|------|------|------|
-| Free | 50 万字符/月 👍 | 免费版本 |
-| Pro | 按使用量付费 | 企业级服务 |
+## 1. 申请条件
 
----
+申请 DeepL API 仅支持部分国家的信用卡（**目前国内的 Visa 卡是不行的**），点击下方链接可查看支持的国家。
 
-## 方案一：使用官方 DeepL API
+查看支持的国家
 
-### 1. 注册登录
+## 2. 注册开通 DeepL API
 
-[点击此处跳转网页](https://www.deepl.com/pro-api)
+前往[「DeepL API 申请页面」](https://www.deepl.com/pro#developer)，滑动到对应区域，选中「研发人员」，**选中自己的银行卡发行国**，点击「免费注册」（这里是以注册「DEEPL API FREE」为例，如果想注册「DEEPL API Pro」，就点击右侧的「立即订购」）
 
-点击「Sign up」注册账号
+![deepl_register_1](https://cdn.ripperhe.com/oss/master/2022/1103/deepl_register_1.jpg)
 
-使用邮箱注册或通过 Google/Microsoft 账号登录
+然后正常输入账号信息进行注册，紧接着如下图所示，如实输入必要的信息，点击「继续」
 
-### 2. 选择 API 方案
+![deepl_register_2](https://cdn.ripperhe.com/oss/master/2022/1103/deepl_register_2.jpg)
 
-登录后选择 API 方案：
-- **Free API**：免费版本，50 万字符/月
-- **Pro API**：付费版本，按使用量计费
+提示
 
-### 3. 绑定支付方式
+接下来有可能还会有一些验证手段，用于验证你是否为信用卡的主人，跟着提示操作就行
 
-进入 [「账户设置」](https://www.deepl.com/account/summary)
+勾选上「我接收...」、「我同意...」，点击「免费注册」
 
-点击「Billing」
+![deepl_register_3](https://cdn.ripperhe.com/oss/master/2022/1103/deepl_register_3.jpg)
 
-添加支付方式（信用卡、借记卡等）
+如下图所示即为申请成功
 
-::: tip 提示
-DeepL Free API 需要填写信用卡信息进行验证，但不会自动收费
-:::
+![deepl_register_4](https://cdn.ripperhe.com/oss/master/2022/1103/deepl_register_4.jpg)
 
-### 4. 获取 API Key
+## 3. 获取秘钥
 
-进入 [「账户设置」](https://www.deepl.com/account/summary)
+警告
 
-在「API」部分找到 **API Key**
+**前面的步骤，只要没明确说可以跳过，那就是不能跳过的，不然获取到秘钥也用不了！**
 
-复制 API Key 并妥善保管
+此外，请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
 
-::: warning 警告
-**API Key 请妥善保管，泄露可能会给你带来损失！**
-:::
+注册成功之后，进入「[DeepL 账户](https://www.deepl.com/zh/account/summary)」页面，如下图所示即为需要的秘钥
 
-### 5. 填写 API Key
+![deepl_secret](https://cdn.ripperhe.com/oss/master/2022/1103/deepl_secret.jpg)
 
-在 OCR 应用的 模型服务 > 传统模型 中，选中「DeepLX」，然后将刚才获取到的 API Key 填写到对应位置即可。
+## 4. 填写秘钥
 
----
-
-## 方案二：使用 DeepLX 开源项目（免费）
-
-DeepLX 是一个开源项目，可以免费使用 DeepL 翻译功能，无需付费。
-
-### 部署方式
-
-#### 选项 1：自行部署
-
-1. 访问 [DeepLX GitHub 项目](https://github.com/OwO-Network/DeepLX)
-
-2. 按照项目说明进行部署
-
-3. 获取本地服务地址（如 `http://localhost:1188`）
-
-#### 选项 2：使用公共 DeepLX 接口
-
-使用已部署的公共 DeepLX 服务地址
-
-::: warning 注意
-公共 DeepLX 服务可能不稳定，建议自行部署或使用官方 API
-:::
-
-### 配置参数
-
-| 参数 | 说明 |
-|------|------|
-| API 地址 | DeepLX 服务地址，如 `http://localhost:1188` |
-
-### 填写配置
-
-在 OCR 应用的 模型服务 > 传统模型 中，选中「DeepLX」，然后将 DeepLX 服务地址填写到对应位置即可。
-
----
-
-## 翻译质量对比
-
-| 服务 | 中文翻译 | 欧洲语言 | 推荐场景 |
-|------|---------|---------|---------|
-| DeepL | 优秀 | 最强 👍 | 欧洲语言翻译 |
-| 百度翻译 | 最强 👍 | 一般 | 中文翻译 |
-| 腾讯翻译 | 优秀 | 一般 | 通用翻译 |
-
-## 常见问题
-
-### 官方 DeepL API
-
-#### 1. 无法访问 DeepL 网站
-
-- DeepL 在某些地区可能无法直接访问
-- 使用 VPN 或代理服务
-- 使用第三方中转 API 服务
-
-#### 2. 支付方式被拒绝
-
-- 确保信用卡支持国际交易
-- 尝试使用其他支付方式
-- 联系银行确认是否被限制
-
-#### 3. API Key 无法使用
-
-- 确保 API Key 已正确复制
-- 检查是否已绑定支付方式
-- 确认账户有足够的余额或额度
-
-#### 4. 翻译结果不准确
-
-- DeepL 翻译质量通常很高
-- 对于专业术语，可能需要手动调整
-- 尝试调整翻译参数
-
-#### 5. 免费额度用完了
-
-- Free API 每月 50 万字符免费额度
-- 超出后需要升级到 Pro 版本
-- 查看 [DeepL 定价页面](https://www.deepl.com/pro-api) 了解价格
-
-### DeepLX 开源项目
-
-#### 1. 部署失败
-
-- 确保已安装所有依赖
-- 检查端口是否被占用
-- 查看项目 GitHub 的 Issues 获取帮助
-
-#### 2. 翻译速度慢
-
-- 检查网络连接
-- 如果使用公共服务，可能因为用户过多而变慢
-- 建议自行部署以获得更好的性能
-
-#### 3. 公共 DeepLX 服务不稳定
-
-- 公共服务可能随时下线或变慢
-- 建议自行部署或使用官方 API
-- 可以在 GitHub 上寻找其他可靠的公共服务
-
-#### 4. 如何自行部署
-
-- 访问 [DeepLX GitHub 项目](https://github.com/OwO-Network/DeepLX)
-- 按照 README 中的说明进行部署
-- 支持 Docker 部署，更加方便
-
-#### 5. 部署后如何使用
-
-- 获取本地服务地址（如 `http://localhost:1188`）
-- 在应用中填写该地址
-- 无需 API Key，完全免费使用
-
-## 下一步
-
-配置完成后，返回插件进行 [传统模型服务配置](/config/traditional-models)。
+在 OCR Pro 的 模型服务 > 传统模型 中，选中「DeepLX」，然后将刚才获取到的秘钥填写到对应位置即可。

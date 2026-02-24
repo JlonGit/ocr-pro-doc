@@ -1,4 +1,4 @@
-# Gemini <Badge type="tip" text="推荐" />
+# Gemini
 
 ::: warning 注意
 本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。

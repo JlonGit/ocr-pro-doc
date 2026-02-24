@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.volcengine.com)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:openai.com)",
+      "WebFetch(domain:cloud.baidu.com)",
+      "WebFetch(domain:ai.baidu.com)",
+      "WebFetch(domain:console.anthropic.com)",
+      "WebFetch(domain:aistudio.google.com)",
+      "Bash(cd C:\\\\Users\\\\JJJ\\\\OneDrive\\\\Windows\\\\Code\\\\OCR_doc\\\\docs:*)",
+      "WebFetch(domain:bobtranslate.com)",
+      "Bash(cd C:\\\\Users\\\\JJJ\\\\OneDrive\\\\Windows\\\\Code\\\\OCR_doc\\\\docs\\\\service:*)",
+      "Bash(cp:*)"
+    ]
+  }
+}

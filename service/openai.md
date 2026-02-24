@@ -1,108 +1,69 @@
 # OpenAI
 
 ::: warning 注意
+
 本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
 
-官方文档：https://platform.openai.com/docs/quickstart
+官方文档：https://platform.openai.com/docs/introduction
+
 :::
 
-## API 申请
+## 0. 收费模式
 
-### 免费额度
+| Model       | input tokens | output tokens |
+| :---------- | :----------- | :------------ |
+| gpt-4o      | $2.50 / 1M   | $10.00 / 1M   |
+| gpt-4o-mini | $0.150 / 1M  | $0.600 / 1M   |
 
-OpenAI 不提供免费额度，需要绑定支付方式才能使用 API。
+OpenAI 的 API 与其他 API 计费方式差别较大，按 token 计费，输入输出都会计入费用。OpenAI 官方文档有提到，根据经验粗略估计，对于英文文本，1 个 token 大约为 4 个字符或 0.75 个单词。
 
-| 模型 | 价格 |
-|------|------|
-| gpt-4o-mini | 输入 $0.15/百万 tokens，输出 $0.60/百万 tokens |
-| gpt-4o | 输入 $5/百万 tokens，输出 $15/百万 tokens |
+详情参考下方文档：
 
-## 1. 注册登录
+- https://openai.com/api/pricing/
+- https://platform.openai.com/docs/models/overview
 
-[点击此处跳转网页](https://platform.openai.com/)
+## 1. 申请条件
 
-点击「Sign up」注册账号，使用邮箱或 Google/Microsoft 账号登录
+OpenAI 未在中国大陆提供服务，这可能是目前为止最难申请的 API。如果想要申请，需满足以下条件：
 
-## 2. 绑定支付方式
+- 访问国际互联网的能力（在 OpenAI 官方不允许的国家或地区使用可能会导致封号）
+- 能够接收短信的国外电话号码
+- 国外信用卡
 
-::: warning 重要
-OpenAI API 需要绑定有效的支付方式才能使用，否则会无法调用 API
-:::
+第三方 OpenAI/Claude API 推荐
 
-登录后进入 [「Billing」](https://platform.openai.com/account/billing/overview)
+申请 OpenAI/Claude 官方的 API 密钥比较困难，不满足条件可以考虑使用第三方的 API。
 
-点击「Add to credit balance」或「Set up paid account」
+**推荐 AIHubMix 的 API 密钥，聚合 OpenAI 和 Claude 的 API 密钥，速度飞快，无封号风险。**
 
-选择支付方式（信用卡、借记卡等）
+免责声明：虽然此 OpenAI/Claude API 在推广前已经验证可用，但由于该 OpenAI/Claude API 密钥由第三方平台 AIHubMix 提供，所以需要自行承担购买和使用密钥的风险。
 
-填写卡片信息并完成验证
+前往 AIHubMix 平台
 
-## 3. 创建 API Key
 
-进入 [「API keys」](https://platform.openai.com/api/keys)
 
-点击「Create new secret key」
+```
+https://aihubmix.com?aff=2nc8
+```
 
-选择权限范围（通常选择「All」）
+## 2. 注册登录
 
-复制生成的 API Key 并妥善保管
+前往 [OpenAI 官网](https://platform.openai.com/overview) 注册登录。
 
-::: warning 警告
-**API Key 只会显示一次，请立即复制并保存到安全的地方，泄露可能会给你带来损失！**
-:::
+## 3. 获取秘钥
 
-## 4. 查看使用额度
+警告
 
-进入 [「Usage」](https://platform.openai.com/account/usage/overview)
+请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
 
-可以查看当前的使用情况和剩余额度
+申请成功后，前往 [「这个网页」](https://platform.openai.com/account/api-keys)，点击「Create new secret key」
 
-## 5. 填写 API Key
+![openai_key](https://cdn.ripperhe.com/oss/master/2023/0401/openai_key.jpg)
 
-在 OCR 应用的 模型服务 > 大模型 中，选中「OpenAI」，然后将刚才获取到的 API Key 填写到对应位置即可。
+如下图所示即为需要的秘钥
 
----
+![openai_key](https://cdn.ripperhe.com/oss/master/2023/0401/openai_key2.jpg)
 
-## API 地址自定义
+## 4. 填写秘钥
 
-支持自定义 API 地址，方便使用第三方中转或私有部署：
-
-- **OpenAI 兼容格式**：填写完整地址，如 `https://your-proxy.com/v1`
-- **Azure OpenAI**：使用 Azure 端点地址
-
-## 模型选择
-
-| 模型 | 特点 | 推荐场景 |
-|------|------|---------|
-| gpt-4o | 旗舰多模态模型，能力最强 | 复杂任务、OCR 识别 |
-| gpt-4o-mini | 轻量版本，速度快，价格低 | 简单任务、高频调用 |
-
-## 常见问题
-
-### 1. 无法访问 OpenAI 网站
-
-OpenAI 在某些地区可能无法直接访问，可以：
-- 使用 VPN 或代理服务
-- 使用第三方中转 API 服务
-
-### 2. 支付方式被拒绝
-
-- 确保信用卡支持国际交易
-- 尝试使用其他支付方式
-- 联系银行确认是否被限制
-
-### 3. API 调用失败
-
-- 检查 API Key 是否正确
-- 确认账户有足够的余额或额度
-- 检查请求格式是否正确
-
-### 4. 如何降低成本
-
-- 使用 `gpt-4o-mini` 而不是 `gpt-4o`
-- 优化 prompt，减少 token 使用
-- 使用批量 API 获得折扣
-
-## 下一步
-
-配置完成后，返回插件进行 [大模型服务配置](/config/llm-models)。
+在 OCR Pro 的 模型服务 > 大模型 中，选中「OpenAI」，然后将刚才获取到的秘钥填写到对应位置即可。

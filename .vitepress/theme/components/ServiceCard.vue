@@ -80,6 +80,19 @@ defineProps({
   border-radius: 6px;
 }
 
+/* 为白色图标添加深色背景 */
+.service-card:has(img[src*="openai"]) .service-icon-img {
+  background: #000;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+/* 暗色模式下移除背景 */
+.dark .service-card:has(img[src*="openai"]) .service-icon-img {
+  background: transparent;
+  padding: 0;
+}
+
 .service-icon-placeholder {
   display: flex;
   align-items: center;
