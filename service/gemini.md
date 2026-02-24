@@ -76,6 +76,31 @@ Gemini 提供充足的免费调用额度，个人使用通常无需付费
 免费额度对于个人使用和测试通常足够，超出后才需要付费
 :::
 
+## 常见问题
+
+### 1. 无法访问 Google AI Studio
+
+Google AI Studio 在某些地区可能无法直接访问，可以：
+- 使用 VPN 或代理服务
+- 使用第三方中转 API 服务
+
+### 2. API Key 无法使用
+
+- 确保 API Key 已启用 Gemini API
+- 检查 Google Cloud 项目是否正确
+- 确认 API 配额未超出
+
+### 3. 如何增加免费额度
+
+- 升级到付费账户可获得更高的配额
+- 联系 Google Cloud 支持申请提高限制
+
+### 4. 模型选择建议
+
+- OCR 识别：使用 `gemini-2.0-flash` 或 `gemini-1.5-pro`
+- 高频调用：使用 `gemini-1.5-flash`
+- 长文本处理：使用 `gemini-1.5-pro`
+
 ## 下一步
 
 配置完成后，返回插件进行 [大模型服务配置](/config/llm-models)。

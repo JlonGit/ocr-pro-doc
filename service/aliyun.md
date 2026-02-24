@@ -63,6 +63,36 @@
 
 在 OCR Pro 的 模型服务 > 传统模型 中，选中「阿里云」，然后将刚才获取到的秘钥填写到对应位置即可。详细使用方法可查看 [OCR 默认模型](https://ocr.jlws.top/config/ocr-default.html) 页面和[默文本翻译认模型](https://ocr.jlws.top/config/translate-default.html) 页面。
 
+## 常见问题
+
+### OCR 服务
+
+#### 1. 开通后无法立即使用
+
+- 开通后需要等待 5-10 分钟才能生效
+- 刷新页面或重新登录
+- 检查是否已完成实名认证
+
+#### 2. 免费额度用完了
+
+- 可以升级到付费版本
+- 查看 [阿里云 OCR 定价页面](https://help.aliyun.com/zh/ocr/product-overview/free-quota) 了解价格
+- 可以创建多个应用来获得更多免费额度
+
+#### 3. API 调用失败
+
+- 检查 AccessKey ID 和 AccessKey Secret 是否正确
+- 确认请求格式是否正确
+- 检查图片大小是否超过限制（通常 4MB 以内）
+
+#### 4. 识别精度不高
+
+- 尝试使用「全文识别高精版」模型
+- 确保图片清晰度足够
+- 调整图片角度和光线
+
+---
+
 ## 翻译服务
 
 
