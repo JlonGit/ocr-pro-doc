@@ -6,15 +6,22 @@
 官方文档：https://platform.openai.com/docs/quickstart
 :::
 
-OpenAI 的 GPT 系列模型，综合能力强，生态成熟。
+## API 申请
+
+### 免费额度
+
+OpenAI 不提供免费额度，需要绑定支付方式才能使用 API。
+
+| 模型 | 价格 |
+|------|------|
+| gpt-4o-mini | 输入 $0.15/百万 tokens，输出 $0.60/百万 tokens |
+| gpt-4o | 输入 $5/百万 tokens，输出 $15/百万 tokens |
 
 ## 1. 注册登录
 
 [点击此处跳转网页](https://platform.openai.com/)
 
-点击「Sign up」注册账号
-
-使用邮箱或 Google/Microsoft 账号登录
+点击「Sign up」注册账号，使用邮箱或 Google/Microsoft 账号登录
 
 ## 2. 绑定支付方式
 
@@ -69,15 +76,6 @@ OpenAI API 需要绑定有效的支付方式才能使用，否则会无法调用
 |------|------|---------|
 | gpt-4o | 旗舰多模态模型，能力最强 | 复杂任务、OCR 识别 |
 | gpt-4o-mini | 轻量版本，速度快，价格低 | 简单任务、高频调用 |
-| gpt-4-turbo | 上一代旗舰模型 | 长文本处理 |
-
-## 定价信息
-
-具体定价请查看 [OpenAI 定价页面](https://openai.com/pricing)
-
-::: tip 提示
-可考虑使用第三方中转服务来降低成本或解决地域限制问题
-:::
 
 ## 常见问题
 

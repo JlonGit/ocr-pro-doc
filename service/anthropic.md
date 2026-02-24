@@ -6,15 +6,23 @@
 官方文档：https://docs.anthropic.com/en/docs/quickstart
 :::
 
-Anthropic 的 Claude 系列模型，长文本处理能力强。
+## API 申请
+
+### 免费额度
+
+Anthropic 不提供免费额度，需要绑定支付方式才能使用 API。
+
+| 模型 | 价格 |
+|------|------|
+| claude-3-haiku | 输入 $0.80/百万 tokens，输出 $4/百万 tokens |
+| claude-3-5-sonnet | 输入 $3/百万 tokens，输出 $15/百万 tokens |
+| claude-3-opus | 输入 $15/百万 tokens，输出 $75/百万 tokens |
 
 ## 1. 注册登录
 
 [点击此处跳转网页](https://console.anthropic.com/)
 
-点击「Sign up」注册账号
-
-使用邮箱注册或通过 Google 账号登录
+点击「Sign up」注册账号，使用邮箱注册或通过 Google 账号登录
 
 ## 2. 绑定支付方式
 
@@ -63,14 +71,6 @@ Anthropic API 需要绑定有效的支付方式才能使用
 | claude-3-5-sonnet-20241022 | 综合能力强，性价比高 | 通用任务、OCR 识别 |
 | claude-3-opus-20250219 | 最强模型，复杂任务首选 | 复杂推理、长文本分析 |
 | claude-3-haiku-20250307 | 轻量版本，速度快 | 简单任务、高频调用 |
-
-## 定价信息
-
-具体定价请查看 [Anthropic 定价页面](https://www.anthropic.com/pricing/claude)
-
-::: tip 提示
-Claude 模型支持较长的上下文窗口，适合处理大量文本
-:::
 
 ## 常见问题
 
