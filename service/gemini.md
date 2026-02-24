@@ -1,38 +1,80 @@
 # Gemini <Badge type="tip" text="推荐" />
 
+::: warning 注意
+本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
+
+官方文档：https://ai.google.dev/docs
+:::
+
 Google 的多模态 AI 模型，免费额度大，支持 OCR、翻译等多种功能。
 
-## API 申请
+## 1. 访问 Google AI Studio
 
-### 申请步骤
+[点击此处跳转网页](https://aistudio.google.com/)
 
-1. 访问 [Google AI Studio](https://aistudio.google.com/)
-2. 使用 Google 账号登录
-3. 点击左侧「Get API key」
-4. 点击「Create API key」创建新密钥
-5. 选择或创建一个 Google Cloud 项目
-6. 复制生成的 API Key
+使用 Google 账号登录
 
-### 配置参数
+如果没有 Google 账号，需要先注册
 
-| 参数 | 说明 |
-|------|------|
-| API Key | 从 AI Studio 获取的密钥 |
-| 模型 | 推荐使用 `gemini-2.0-flash` |
+## 2. 创建 API Key
 
-::: tip 免费额度
-Gemini 提供充足的免费调用额度，个人使用通常无需付费。
+点击左侧「Get API key」
+
+点击「Create API key」创建新密钥
+
+选择或创建一个 Google Cloud 项目
+
+系统会自动生成 API Key
+
+复制生成的 API Key 并妥善保管
+
+::: warning 警告
+**API Key 请妥善保管，泄露可能会给你带来损失！**
 :::
+
+## 3. 查看使用配额
+
+进入 [「Google Cloud Console」](https://console.cloud.google.com/)
+
+选择对应的项目
+
+进入「APIs & Services」→「Quotas」
+
+可以查看 Gemini API 的使用配额
+
+## 4. 填写 API Key
+
+在 OCR 应用的 模型服务 > 大模型 中，选中「Gemini」，然后将刚才获取到的 API Key 填写到对应位置即可。
 
 ---
 
+## 免费额度
+
+::: tip 提示
+Gemini 提供充足的免费调用额度，个人使用通常无需付费
+:::
+
+| 项目 | 免费额度 |
+|------|---------|
+| 请求数 | 每分钟 60 次 |
+| 每日请求数 | 1500 次 |
+| 并发请求数 | 2 个 |
+
 ## 模型选择
 
-| 模型 | 特点 |
-|------|------|
-| gemini-2.0-flash | 最新快速模型，推荐使用 |
-| gemini-1.5-pro | 长上下文处理能力强 |
-| gemini-1.5-flash | 快速响应，适合高频使用 |
+| 模型 | 特点 | 推荐场景 |
+|------|------|---------|
+| gemini-2.0-flash | 最新快速模型，推荐使用 | 通用任务、OCR 识别 |
+| gemini-1.5-pro | 长上下文处理能力强 | 长文本分析、复杂任务 |
+| gemini-1.5-flash | 快速响应，适合高频使用 | 简单任务、高频调用 |
+
+## 定价信息
+
+具体定价请查看 [Google AI 定价页面](https://ai.google.dev/pricing)
+
+::: tip 提示
+免费额度对于个人使用和测试通常足够，超出后才需要付费
+:::
 
 ## 下一步
 

@@ -1,60 +1,133 @@
 # 腾讯云
 
-腾讯云提供高速的 OCR 文字识别和翻译服务，性价比高。
+# 腾讯 OCR
 
-## OCR 服务
+注意
 
-腾讯云 OCR 服务速度快、性价比高。
+本文信息可能会过时，仅供参考，请以服务商最新官方文档为准。
 
-### 申请步骤
+官方文档：https://cloud.tencent.com/product/generalocr/getting-started
 
-1. 访问 [腾讯云](https://cloud.tencent.com/)
-2. 注册/登录账号
-3. 进入控制台 → 「云产品」→「人工智能」→「文字识别」
-4. 开通服务
-5. 进入「访问密钥」→「API密钥管理」
-6. 新建或查看密钥，获取 **SecretId** 和 **SecretKey**
+## 0. 收费模式
 
-### 配置参数
+[查看详情](https://cloud.tencent.com/product/generalocr/pricing)
 
-| 参数 | 说明 |
-|------|------|
-| SecretId | 腾讯云 SecretId |
-| SecretKey | 腾讯云 SecretKey |
+| 服务           | 免费额度     | 超出免费额度 | 并发请求数 |
+| :------------- | :----------- | :----------- | :--------- |
+| 通用印刷体识别 | 每月1000次 👍 | 0.15元/次    | -          |
 
-### 免费额度
+## 1. 注册登录
 
-| 类型 | 免费额度 |
-|------|----------|
-| 通用印刷体识别 | 每月 1000 次 |
-| 通用印刷体（高精度） | 每月 1000 次 |
-| 通用手写体识别 | 每月 1000 次 |
+[点击此处跳转网页](https://cloud.tencent.com/)
 
----
+![tencent_ocr_login](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_login.png)
 
-## 翻译服务
+## 2. 个人认证
 
-腾讯云机器翻译服务，与腾讯 OCR 共用密钥。
+注意
 
-### 申请步骤
+腾讯云免费服务使用之前需要认证，普通用户申请「个人认证」即可，如果已经认证，请直接跳过此步骤
 
-1. 访问 [腾讯云](https://cloud.tencent.com/)
-2. 登录账号
-3. 进入「云产品」→「人工智能」→「机器翻译」
-4. 开通服务
-5. 使用之前获取的 **SecretId** 和 **SecretKey**
+进入 [「账号信息-查看或修改认证」](https://console.cloud.tencent.com/developer/auth)，点击「开始个人认证」
 
-### 配置参数
+![tencent_ocr_auth_1](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_auth_1.png)
 
-| 参数 | 说明 |
-|------|------|
-| SecretId | 腾讯云 SecretId |
-| SecretKey | 腾讯云 SecretKey |
+以下信息如实填写，然后点击「下一步」
 
-### 免费额度
+![tencent_ocr_auth_2](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_auth_2.png)
 
-每月免费额度 500 万字符。
+如下提示即代表认证成功
 
-## 下一步
+![tencent_ocr_auth_3](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_auth_3.png)
 
-配置完成后，返回插件进行 [传统模型服务配置](/config/traditional-models)。
+## 3. 开通文字识别
+
+提示
+
+如果进入文字识别页面能直接看到调用量，证明已开通，请直接跳过此步骤
+
+进入 [「文字识别-通用文字识别-通用印刷体识别」](https://console.cloud.tencent.com/ocr/general) 页面，点击「立即开通」
+
+![tencent_ocr_open](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_open.png)
+
+## 4. 获取秘钥
+
+警告
+
+**前面的步骤，只要没明确说可以跳过，那就是不能跳过的，不然获取到秘钥也用不了！**
+
+此外，请妥善保管自己的秘钥，秘钥泄露可能会给你带来损失！
+
+获取秘钥有两个方法，方法 1 更快捷，方法 2 更安全，**任选一个跟着操作就可以了**。
+
+### 方法1（更快捷）
+
+如果想更快捷地获取秘钥，可以直接获取「主账号」的秘钥，**该秘钥可以直接访问你账户下的所有腾讯云资源**。
+
+进入 [「访问管理-访问秘钥-API秘钥管理」](https://console.cloud.tencent.com/cam/capi)，点击「新建秘钥」
+
+提示
+
+如果已有秘钥，可直接使用，无需再新建
+
+![tencent_ocr_secret_1_1](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_secret_1_1.png)
+
+如下图所示即所需的秘钥
+
+![tencent_ocr_secret_1_2](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_secret_1_2.png)
+
+### 方法2（更安全）
+
+如果想要更安全一些，可以创建一个「子用户」，然后只给这个「子用户」开启访问「文字识别」API的权限
+
+注意
+
+如果之前为腾讯的其他服务创建过「子用户」，**也请创建一个新的「子用户」**，每个服务对应的权限可能不同，只有权限对应上了才能正常使用。
+
+进入 [「访问管理-用户-用户列表」](https://console.cloud.tencent.com/cam)，点击「新建用户」
+
+![tencent_ocr_user_1](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_1.png)
+
+点击「自定义创建」
+
+![tencent_ocr_user_2](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_2.png)
+
+选择「可访问资源并接受消息」
+
+![tencent_ocr_user_3](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_3.png)
+
+用户名随意设置，勾选上「编程访问」，其他的不用勾选，然后点击「下一步」
+
+![tencent_ocr_user_4](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_4.png)
+
+在搜索框输入「ocr」即可快速找到「文字识别」相关服务，然后勾选上「**QcloudOCRFullAccess**」，点击「下一步」
+
+![tencent_ocr_user_5](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_5.png)
+
+点击「完成」
+
+![tencent_ocr_user_6](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_6.png)
+
+如下图所示即为所需秘钥
+
+![tencent_ocr_user_7](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_user_7.png)
+
+如果已经创建完「子用户」，想重新查看秘钥，则进入 [「访问管理-用户-用户列表」](https://console.cloud.tencent.com/cam)，展开对应子用户，然后点击「查看用户详情」
+
+![tencent_ocr_secret_2_1](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_secret_2_1.png)
+
+点击「API 秘钥」，下图所示即可所需秘钥
+
+![tencent_ocr_secret_2_2](https://cdn.ripperhe.com/oss/master/2020/0502/tencent_ocr_secret_2_2.png)
+
+## 5. 填写秘钥
+
+在 Bob 的 偏好设置 > 服务 中，选中「文本识别」，点击 `+` 号，选中「腾讯 OCR」，然后将刚才获取到的秘钥填写到对应位置即可。
+
+详细使用方法可查看 [服务](https://bobtranslate.com/guide/advance/service.html) 页面。
+
+## 6. 注意事项
+
+- **腾讯云文字识别开通后需要等免费资源包才可以使用。**
+- 资源包发放可能有延迟，最迟将于开通后整点全部发放到位。
+- 可在这个页面查看资源包的情况 https://console.cloud.tencent.com/ocr/packagemanage
